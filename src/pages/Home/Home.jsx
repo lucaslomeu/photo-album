@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import HeroSection from '../../components/HeroSection/HeroSection';
+import SelectInput from '../../components/SelectInput/SelectInput';
 
 import '../../assets/styles/reset.scss';
 
@@ -24,7 +25,6 @@ const Home = () => {
         .then((data) => data.json())
         .then((data) => {
           setInfo(data.photos);
-          console.log(info);
         });
     } else {
       fetch(`https://api.pexels.com/v1/popular?per_page=12`, {
@@ -35,7 +35,6 @@ const Home = () => {
         .then((data) => data.json())
         .then((data) => {
           setInfo(data.photos);
-          console.log(info);
         });
     }
   }, [photo]);
@@ -43,25 +42,35 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <HeroSection onChange={(search) => setPhoto(search)} />
+      <HeroSection
+        // src={info ? info[1].src.small :
+        // {(info === 'random')[1].src.small}}
+        onChange={(search) => setPhoto(search)}
+      />
       <div className="list-navbar">
-        <p>Newest</p>
-        <p>Popular</p>
-        <p>Random</p>
-        <p>Sort by</p>
+        <p className="link-navbar">Newest</p>
+        <p className="link-navbar">Popular</p>
+        <p className="link-navbar">Random</p>
       </div>
 
       {info && (
-        <ul className="list-images">
-          {info.map((img) => (
-            <li className="item-img">
-              <img
-                src={img.src.portrait}
-                alt={`Photography number ${img.id}`}
-              ></img>
-            </li>
-          ))}
-        </ul>
+        <div className="list-result">
+          {!photo ? (
+            <div className="header-list">Fotos gratuitas</div>
+          ) : (
+            <div className="header-list">{photo}</div>
+          )}
+          <ul className="list-images">
+            {info.map((img) => (
+              <li key={img.id} className="item-img">
+                <img
+                  src={img.src.portrait}
+                  alt={`Photography number ${img.id}`}
+                ></img>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       <Footer />
