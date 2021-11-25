@@ -7,8 +7,12 @@ const Header = () => {
     <div className="header">
       <div className="logo">ALBUM</div>
       <div className="link">
-        <p>About</p>
-        <p>Contact</p>
+        <div className="about">
+          <p>About</p>
+        </div>
+        <div className="contact">
+          <p>Contact</p>
+        </div>
       </div>
     </div>
   );
