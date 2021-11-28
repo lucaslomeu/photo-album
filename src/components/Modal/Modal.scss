@@ -25,19 +25,24 @@
       height: 100%;
 
       .img-modal {
-        // max-width: 350px;
+        max-width: 100%;
       }
 
       .info-modal {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
         padding: 0 20px;
 
         .photographer {
           font-weight: bold;
           font-size: 2rem;
+          padding: 1rem;
+        }
+
+        .size-img {
+          display: flex;
+          gap: 1rem;
         }
       }
     }

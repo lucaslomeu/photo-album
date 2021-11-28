@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import Modal from '../../components/Modal/Modal';
+import SizeChoice from '../../components/SizeChoice/SizeChoice';
 
 import '../../assets/styles/reset.scss';
 
@@ -89,42 +90,12 @@ const Home = () => {
             <div className="info-modal">
               <div className="photographer">{modalPhoto.photographer}</div>
               <div className="size-img">
-                {/* CRIAR UM MAP/FOREACH PARA CADA TAMANHO DE IMAGEM E ABRIR EM UMA NOVA ABA IGUAL OS ANCORAS ABAIXO */}
-
-                <a href={modalPhoto.src.small} target="_blank" rel="noreferrer">
-                  Pequeno
-                </a>
-                <a
-                  href={modalPhoto.src.medium}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Médio
-                </a>
-                <a href={modalPhoto.src.large} target="_blank" rel="noreferrer">
-                  Largo
-                </a>
-                <a
-                  href={modalPhoto.src.original}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Original
-                </a>
-                <a
-                  href={modalPhoto.src.portrait}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Retrato
-                </a>
-                <a
-                  href={modalPhoto.src.landscape}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Paisagem
-                </a>
+                <SizeChoice size={modalPhoto.src.small} text="Pequeno" />
+                <SizeChoice size={modalPhoto.src.medium} text="Médio" />
+                <SizeChoice size={modalPhoto.src.large} text="Largo" />
+                <SizeChoice size={modalPhoto.src.original} text="Original" />
+                <SizeChoice size={modalPhoto.src.portrait} text="Retrato" />
+                <SizeChoice size={modalPhoto.src.landscape} text="Paisagem" />
               </div>
             </div>
           </div>
