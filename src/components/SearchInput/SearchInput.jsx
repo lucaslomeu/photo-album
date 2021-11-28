@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './SearchInput.scss';
+import { HiOutlineSearchCircle } from 'react-icons/hi';
 
 const SearchInput = ({ type = 'search', placeholder, onChange }) => {
   function handleChange(e) {
@@ -20,15 +21,17 @@ const SearchInput = ({ type = 'search', placeholder, onChange }) => {
 
   return (
     <div className="search-container">
-      <input
-        className="search-input"
-        type={type}
-        placeholder={placeholder}
-        onKeyPress={change}
-      />
-      <button className="search-btn" type="submit" onClick={handleClick}>
-        GO
-      </button>
+      <div className="box-search">
+        <input
+          className="search-input"
+          type={type}
+          placeholder={placeholder}
+          onKeyPress={change}
+        />
+        <button className="search-btn" type="submit" onClick={handleClick}>
+          <HiOutlineSearchCircle />
+        </button>
+      </div>
     </div>
   );
 };

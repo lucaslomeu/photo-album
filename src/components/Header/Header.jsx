@@ -5,13 +5,13 @@ import './Header.scss';
 const Header = () => {
   return (
     <div className="header">
-      <div className="logo">ALBUM</div>
+      <div className="logo">ÁLBUM</div>
       <div className="link">
         <div className="about">
-          <p>About</p>
+          <p>SOBRE</p>
         </div>
         <div className="contact">
-          <p>Contact</p>
+          <p>CONTATO</p>
         </div>
       </div>
     </div>

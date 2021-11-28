@@ -3,11 +3,12 @@ import SearchInput from '../SearchInput/SearchInput';
 
 import './HeroSection.scss';
 
-const HeroSection = ({ onChange, src }) => {
+const HeroSection = ({ onChange }) => {
   return (
     <div className="hero-section">
-      <img className="img-bg" src={`${src}`} alt="Background" />
-      <h1>Encontre as melhores imagens</h1>
+      <div className="title-hero">
+        As <span>melhores</span> fotos estão aqui:
+      </div>
       <SearchInput
         type="search"
         placeholder="Pesquise sua foto gratuitamente"

@@ -1,9 +1,21 @@
 .hero-section {
   width: 100%;
-  height: 350px;
+  height: 250px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  .title-hero {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    span {
+      color: var(--secondary-color);
+    }
+  }
 }

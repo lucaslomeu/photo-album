@@ -2,12 +2,33 @@
   display: flex;
   gap: 0.2rem;
 
-  .search-input {
-    width: 500px;
-    height: 50px;
-  }
+  .box-search {
+    background-color: white;
+    display: flex;
+    align-items: center;
 
-  .search-btn {
-    width: 50px;
+    .search-input {
+      width: 500px;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding-left: 1rem;
+    }
+
+    .search-btn {
+      border: none;
+      outline: none;
+      font-size: 1.5rem;
+      padding-right: 10px;
+      background-color: transparent;
+      opacity: 0.6;
+
+      display: flex;
+      align-items: center;
+
+      &:active {
+        color: var(--third-color);
+      }
+    }
   }
 }
