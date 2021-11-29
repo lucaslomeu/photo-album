@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './SearchInput.scss';
+
 import { HiOutlineSearchCircle } from 'react-icons/hi';
 
 const SearchInput = ({ type = 'search', placeholder, onChange }) => {

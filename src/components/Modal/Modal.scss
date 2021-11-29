@@ -1,14 +1,13 @@
+@import '../../assets/styles/reset.scss';
+
 .modal-overlay {
+  @include flexbox;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   .modal {
     background-color: var(--background-color);
@@ -17,9 +16,7 @@
     border-radius: 10px;
 
     .modal-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flexbox($flex-direction: column);
       align-items: center;
       margin: 20px;
       height: 100%;
@@ -29,9 +26,7 @@
       }
 
       .info-modal {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include flexbox($flex-direction: column);
         padding: 0 20px;
 
         .photographer {
@@ -41,7 +36,7 @@
         }
 
         .size-img {
-          display: flex;
+          @include flexbox;
           gap: 1rem;
         }
       }

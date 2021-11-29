@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -47,13 +48,23 @@ const Home = () => {
       <HeroSection onChange={(search) => setPhoto(search)} />
       <div className="list-navbar">
         {!photo ? (
-          <p className="link-navbar">Álbum de Fotos</p>
+          <Link to="/" className="link-navbar">
+            Álbum de Fotos
+          </Link>
         ) : (
-          <p className="link-navbar">{photo}</p>
+          <Link to="/" className="link-navbar">
+            {photo}
+          </Link>
         )}
-        <p className="link-navbar">Newest</p>
-        <p className="link-navbar">Popular</p>
-        <p className="link-navbar">Aleatório</p>
+        <Link to="/novo" className="link-navbar">
+          Novo
+        </Link>
+        <Link to="/popular" className="link-navbar">
+          Popular
+        </Link>
+        <Link to="/aleatorio" className="link-navbar">
+          Aleatório
+        </Link>
       </div>
       {info && (
         <div className="list-result">

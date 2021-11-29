@@ -1,11 +1,12 @@
+@import '../../assets/styles/reset.scss';
+
 .search-container {
   display: flex;
   gap: 0.2rem;
 
   .box-search {
+    @include flexbox;
     background-color: white;
-    display: flex;
-    align-items: center;
 
     .search-input {
       width: 500px;
@@ -27,15 +28,13 @@
     }
 
     .search-btn {
+      @include flexbox;
       border: none;
       outline: none;
       font-size: 1.5rem;
       padding-right: 10px;
       background-color: transparent;
       opacity: 0.6;
-
-      display: flex;
-      align-items: center;
 
       &:active {
         color: var(--third-color);
