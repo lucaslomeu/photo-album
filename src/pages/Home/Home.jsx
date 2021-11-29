@@ -43,7 +43,7 @@ const Home = () => {
   }, [photo]);
 
   return (
-    <div>
+    <>
       <Header />
       <HeroSection onChange={(search) => setPhoto(search)} />
       <div className="list-navbar">
@@ -111,7 +111,7 @@ const Home = () => {
       ) : null}
 
       <Footer />
-    </div>
+    </>
   );
 };
 
