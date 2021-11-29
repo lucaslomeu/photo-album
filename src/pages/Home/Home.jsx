@@ -41,9 +41,6 @@ const Home = () => {
     }
   }, [photo]);
 
-  const openSizeImage = (size) => {
-    window.open(`${size}`);
-  };
   return (
     <div>
       <Header />

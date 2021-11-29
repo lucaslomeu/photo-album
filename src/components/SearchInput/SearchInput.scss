@@ -13,6 +13,17 @@
       border: none;
       outline: none;
       padding-left: 1rem;
+
+      @media (max-width: 785px) {
+        max-width: 400px;
+      }
+      @media (max-width: 560px) {
+        max-width: 300px;
+      }
+
+      @media (min-width: 300px) and (max-width: 560px) {
+        max-width: 250px;
+      }
     }
 
     .search-btn {
