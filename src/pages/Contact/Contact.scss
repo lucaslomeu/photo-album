@@ -7,6 +7,7 @@
   .title-contact {
     padding: 2rem 0;
     text-align: center;
+    color: var(--primary-color);
   }
 
   form {
@@ -14,6 +15,10 @@
     gap: 1.5rem;
     width: 400px;
     padding: 1rem;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
 
     input.input-name,
     input.input-email,
@@ -29,6 +34,10 @@
       &:focus {
         border-color: var(--secondary-color);
       }
+
+      @media (max-width: 768px) {
+        width: 300px;
+      }
     }
 
     textarea.input-textarea {
@@ -42,6 +51,10 @@
 
       &:focus {
         border-color: var(--secondary-color);
+      }
+
+      @media (max-width: 768px) {
+        width: 300px;
       }
     }
 
@@ -63,6 +76,10 @@
       &:hover,
       &:focus {
         background-color: var(--secondary-color);
+      }
+
+      @media (max-width: 768px) {
+        width: 100px;
       }
     }
   }
