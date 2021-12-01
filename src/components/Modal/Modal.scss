@@ -13,7 +13,7 @@
     background-color: var(--background-color);
     color: #000;
     width: 50%;
-    border-radius: 10px;
+    border-radius: 5px;
 
     .modal-content {
       @include flexbox($flex-direction: column);
@@ -33,11 +33,22 @@
           font-weight: bold;
           font-size: 2rem;
           padding: 1rem;
+          color: var(--primary-color);
+          cursor: pointer;
         }
 
         .size-img {
           @include flexbox;
           gap: 1rem;
+
+          a {
+            color: var(--primary-color);
+
+            &:hover,
+            &:active {
+              color: var(--secondary-color);
+            }
+          }
         }
       }
     }

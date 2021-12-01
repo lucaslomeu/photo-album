@@ -12,25 +12,37 @@ import '../../assets/styles/reset.scss';
 import './Home.scss';
 
 const Home = () => {
+  // const token = '563492ad6f917000010000011a0345788a394ca0ad1bc4cfa3a8beb3';
   const token = '563492ad6f91700001000001c9f99ac2e2f24a48b34488987d3cda09';
   const [info, setInfo] = useState([]);
   const [photo, setPhoto] = useState('');
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasQuery, setHasQuery] = useState(false);
 
   useEffect(() => {
     if (photo) {
-      fetch(`https://api.pexels.com/v1/search?query=${photo}?per_page=15`, {
-        headers: {
-          Authorization: `${token}`,
+      if (!hasQuery) {
+        setPage(1);
+        setHasQuery(true);
+      } else {
+        setPage(page + 1);
+      }
+      fetch(
+        `https://api.pexels.com/v1/search?query=${photo}?page=${page}?per_page=15`,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
         },
-      })
+      )
         .then((data) => data.json())
         .then((data) => {
           setInfo(data.photos);
         });
     } else {
-      fetch(`https://api.pexels.com/v1/popular?per_page=12`, {
+      fetch(`https://api.pexels.com/v1/popular?page=${page}?per_page=15`, {
         headers: {
           Authorization: `${token}`,
         },
@@ -40,7 +52,7 @@ const Home = () => {
           setInfo(data.photos);
         });
     }
-  }, [photo]);
+  }, [photo, page, hasQuery]);
 
   return (
     <>
@@ -110,6 +122,7 @@ const Home = () => {
         </Modal>
       ) : null}
 
+      <button onClick={() => setPage(page + 1)}>PROX</button>
       <Footer />
     </>
   );
