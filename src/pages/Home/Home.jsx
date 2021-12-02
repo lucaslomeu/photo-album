@@ -12,52 +12,63 @@ import '../../assets/styles/reset.scss';
 import './Home.scss';
 
 const Home = () => {
-  // const token = '563492ad6f917000010000011a0345788a394ca0ad1bc4cfa3a8beb3';
-  const token = '563492ad6f91700001000001c9f99ac2e2f24a48b34488987d3cda09';
+  const token = '563492ad6f917000010000011a0345788a394ca0ad1bc4cfa3a8beb3';
+  // const token = '563492ad6f91700001000001c9f99ac2e2f24a48b34488987d3cda09';
+  // const token = '563492ad6f917000010000013b85056e10d242119d7b2dd5bb605f4f';
+  // const token = '563492ad6f91700001000001552dbc9be0fb4df58f10953e813e2b53';
+  // const token = '563492ad6f91700001000001df6ace1c5c0743ec91ef6450ca017412';
   const [info, setInfo] = useState([]);
   const [photo, setPhoto] = useState('');
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
-  const [hasQuery, setHasQuery] = useState(false);
+  const [numRequest, setNumRequest] = useState(0);
 
   useEffect(() => {
-    if (photo) {
-      if (!hasQuery) {
-        setPage(1);
-        setHasQuery(true);
+    if (numRequest <= 8) {
+      setNumRequest(numRequest + 1);
+      if (photo !== '') {
+        fetch(
+          `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          },
+        )
+          .then((data) => data.json())
+          .then((data) => {
+            setInfo(data.photos);
+            console.log(page);
+          });
       } else {
-        setPage(page + 1);
-      }
-      fetch(
-        `https://api.pexels.com/v1/search?query=${photo}?page=${page}?per_page=15`,
-        {
+        fetch(`https://api.pexels.com/v1/popular?page=${page}&per_page=15`, {
           headers: {
             Authorization: `${token}`,
           },
-        },
-      )
-        .then((data) => data.json())
-        .then((data) => {
-          setInfo(data.photos);
-        });
-    } else {
-      fetch(`https://api.pexels.com/v1/popular?page=${page}?per_page=15`, {
-        headers: {
-          Authorization: `${token}`,
-        },
-      })
-        .then((data) => data.json())
-        .then((data) => {
-          setInfo(data.photos);
-        });
+        })
+          .then((data) => data.json())
+          .then((data) => {
+            setInfo(data.photos);
+            console.log(page);
+          });
+      }
     }
-  }, [photo, page, hasQuery]);
+  }, [page, photo]);
 
+  function handleChange() {
+    let inputValue = document.querySelector('input.search-input').value;
+    setPage(1);
+    setPhoto(inputValue);
+  }
   return (
     <>
       <Header />
-      <HeroSection onChange={(search) => setPhoto(search)} />
+      <input className="search-input" type="text" />
+
+      <button onClick={handleChange}>PESQUIASR</button>
+
+      {/* <HeroSection onChange={(search) => setPhoto(search)} /> */}
       <div className="list-navbar">
         {!photo ? (
           <Link to="/" className="link-navbar">
