@@ -4,7 +4,7 @@ import SearchInput from '../SearchInput/SearchInput';
 
 import './HeroSection.scss';
 
-const HeroSection = ({ onChange }) => {
+const HeroSection = ({ onClick }) => {
   return (
     <div className="hero-section">
       <div className="title-hero">
@@ -13,7 +13,7 @@ const HeroSection = ({ onChange }) => {
       <SearchInput
         type="search"
         placeholder="Pesquise sua foto gratuitamente"
-        onChange={onChange}
+        onClick={onClick}
       />
     </div>
   );

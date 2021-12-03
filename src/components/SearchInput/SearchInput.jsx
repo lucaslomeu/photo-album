@@ -4,20 +4,16 @@ import './SearchInput.scss';
 
 import { HiOutlineSearchCircle } from 'react-icons/hi';
 
-const SearchInput = ({ type = 'search', placeholder, onChange }) => {
+const SearchInput = ({ type = 'search', placeholder, onClick }) => {
   function handleChange(e) {
-    onChange(e.target.value);
-  }
-
-  function change(e) {
     if (e.key === 'Enter') {
-      handleChange(e);
+      onClick(e.target.value);
     }
   }
 
   function handleClick() {
     let inputValue = document.querySelector('input.search-input').value;
-    onChange(inputValue);
+    onClick(inputValue);
   }
 
   return (
@@ -27,7 +23,7 @@ const SearchInput = ({ type = 'search', placeholder, onChange }) => {
           className="search-input"
           type={type}
           placeholder={placeholder}
-          onKeyPress={change}
+          onKeyPress={handleChange}
         />
         <button className="search-btn" type="submit" onClick={handleClick}>
           <HiOutlineSearchCircle />

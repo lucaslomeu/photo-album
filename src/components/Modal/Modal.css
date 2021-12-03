@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+:root {
+  --primary-color: #393e46;
+  --secondary-color: #e84545;
+  --third-color: #f67280;
+  --background-color: #fefbf3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body,
+html {
+  background-color: var(--background-color);
+}
+
+.modal-overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay .modal {
+  background-color: var(--background-color);
+  color: #000;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.modal-overlay .modal .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  align-items: center;
+  margin: 20px;
+  height: 100%;
+}
+
+.modal-overlay .modal .modal-content .img-modal {
+  max-width: 100%;
+}
+
+.modal-overlay .modal .modal-content .info-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+}
+
+.modal-overlay .modal .modal-content .info-modal .photographer {
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.modal-overlay .modal .modal-content .info-modal .size-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.modal-overlay .modal .modal-content .info-modal .size-img a {
+  color: var(--primary-color);
+}
+
+.modal-overlay .modal .modal-content .info-modal .size-img a:hover, .modal-overlay .modal .modal-content .info-modal .size-img a:active {
+  color: var(--secondary-color);
+}
+/*# sourceMappingURL=Modal.css.map */
