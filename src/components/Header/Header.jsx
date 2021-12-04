@@ -7,12 +7,11 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/">ÁLBUM</Link>
+        <Link to="/" onClick={() => window.location.reload()}>
+          ÁLBUM
+        </Link>
       </div>
       <div className="link">
-        {/* <div className="about">
-          <Link to="/sobre">SOBRE</Link>
-        </div> */}
         <div className="contact">
           <Link to="/contato">CONTATO</Link>
         </div>

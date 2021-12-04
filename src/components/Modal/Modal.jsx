@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SizeChoice from '../SizeChoice/SizeChoice';
 import './Modal.scss';
 
 const Modal = ({
@@ -8,11 +8,16 @@ const Modal = ({
   src,
   alt,
   photographer,
-  children,
+  photographer_url,
+  fetchModal,
 }) => {
   const handleOutsideClick = (e) => {
     if (e.target.id === id) onClose();
   };
+
+  function openPhotographerUrl() {
+    window.open(`${photographer_url}`);
+  }
 
   return (
     <div id={id} className="modal-overlay" onClick={handleOutsideClick}>
@@ -22,8 +27,18 @@ const Modal = ({
             <img className="img-modal" src={src} alt={alt} />
           </div>
           <div className="info-modal">
-            <div className="photographer">{photographer}</div>
-            <div className="size-img">{children}</div>
+            <div onClick={openPhotographerUrl} className="photographer">
+              {photographer}
+            </div>
+            <div className="photographer"></div>
+            <div className="size-img">
+              <SizeChoice size={fetchModal.src.small} text="Pequeno" />
+              <SizeChoice size={fetchModal.src.medium} text="Médio" />
+              <SizeChoice size={fetchModal.src.large} text="Largo" />
+              <SizeChoice size={fetchModal.src.original} text="Original" />
+              <SizeChoice size={fetchModal.src.portrait} text="Retrato" />
+              <SizeChoice size={fetchModal.src.landscape} text="Paisagem" />
+            </div>
           </div>
         </div>
       </div>

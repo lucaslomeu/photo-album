@@ -5,7 +5,10 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Todos os direitos reservados</p>
+      Fotos fornecidas pela
+      <a href="https://www.pexels.com/" className="pexel-footer">
+        Pexel
+      </a>
     </div>
   );
 };
