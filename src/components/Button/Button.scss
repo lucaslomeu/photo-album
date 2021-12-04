@@ -1,0 +1,13 @@
+.btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    color: var(--secondary-color);
+  }
+}

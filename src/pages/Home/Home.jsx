@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import Modal from '../../components/Modal/Modal';
 import SizeChoice from '../../components/SizeChoice/SizeChoice';
+import Button from '../../components/Button/Button';
 
 import '../../assets/styles/reset.scss';
 import './Home.scss';
@@ -21,7 +21,6 @@ const Home = () => {
 
   const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
   const standardUrl = `https://api.pexels.com/v1/popular?page=${page}&per_page=15`;
-  const randomUrl = `https://api.pexels.com/v1/random?page=${page}&per_page=15`;
 
   useEffect(() => {
     if (photo !== '') {
@@ -55,8 +54,9 @@ const Home = () => {
     setPhoto(inputValue);
   }
 
-  function randomGenerator() {
-    let inputValue = 'Random';
+  function randomGenerator(e) {
+    let inputValue = document.querySelector('button.btn').innerText;
+    console.log(inputValue);
     setPage(1);
     setPhoto(inputValue);
   }
@@ -66,22 +66,10 @@ const Home = () => {
       <Header />
       <HeroSection onClick={() => handleSearch()} />
       <div className="list-navbar">
-        {!photo ? (
-          <Link to="/" className="link-navbar">
-            Álbum de Fotos
-          </Link>
-        ) : (
-          <Link to="/" className="link-navbar">
-            {photo}
-          </Link>
-        )}
-        <Link to="/novo" className="link-navbar">
-          Novo
-        </Link>
-        <Link to="/popular" className="link-navbar">
-          Popular
-        </Link>
-        <button onClick={() => randomGenerator()}>Aleatorio</button>
+        {!photo ? <Button text="Álbum de Fotos" /> : <Button text={photo} />}
+        <Button text="Novo" onClick={() => randomGenerator()} />
+        <Button text="Popular" onClick={() => randomGenerator()} />
+        <Button text="Aleatório" onClick={() => randomGenerator()} />
       </div>
       {info && (
         <div className="list-result">
