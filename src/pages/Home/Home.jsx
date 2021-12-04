@@ -11,13 +11,13 @@ import '../../assets/styles/reset.scss';
 import './Home.scss';
 
 const Home = () => {
-  const token = `${process.env.REACT_APP_MY_API_TOKEN}`;
-
   const [info, setInfo] = useState([]);
   const [photo, setPhoto] = useState('');
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
+
+  const token = `${process.env.REACT_APP_MY_API_TOKEN}`;
 
   const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
   const standardUrl = `https://api.pexels.com/v1/popular?page=${page}&per_page=15`;
@@ -91,26 +91,19 @@ const Home = () => {
       )}
 
       {modal ? (
-        <Modal onClose={() => setModal(false)}>
-          <div className="modal-content">
-            <div className="left-modal">
-              <img
-                className="img-modal"
-                src={modalPhoto.src.medium}
-                alt={modalPhoto.id}
-              />
-            </div>
-            <div className="info-modal">
-              <div className="photographer">{modalPhoto.photographer}</div>
-              <div className="size-img">
-                <SizeChoice size={modalPhoto.src.small} text="Pequeno" />
-                <SizeChoice size={modalPhoto.src.medium} text="Médio" />
-                <SizeChoice size={modalPhoto.src.large} text="Largo" />
-                <SizeChoice size={modalPhoto.src.original} text="Original" />
-                <SizeChoice size={modalPhoto.src.portrait} text="Retrato" />
-                <SizeChoice size={modalPhoto.src.landscape} text="Paisagem" />
-              </div>
-            </div>
+        <Modal
+          onClose={() => setModal(false)}
+          src={modalPhoto.src.medium}
+          alt={modalPhoto.id}
+          photographer={modalPhoto.photographer}
+        >
+          <div className="size-img">
+            <SizeChoice size={modalPhoto.src.small} text="Pequeno" />
+            <SizeChoice size={modalPhoto.src.medium} text="Médio" />
+            <SizeChoice size={modalPhoto.src.large} text="Largo" />
+            <SizeChoice size={modalPhoto.src.original} text="Original" />
+            <SizeChoice size={modalPhoto.src.portrait} text="Retrato" />
+            <SizeChoice size={modalPhoto.src.landscape} text="Paisagem" />
           </div>
         </Modal>
       ) : null}
