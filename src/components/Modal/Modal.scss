@@ -7,7 +7,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
 
   .modal {
     background-color: var(--background-color);
@@ -22,8 +22,22 @@
     .modal-content {
       @include flexbox($flex-direction: column);
       align-items: center;
-      margin: 20px;
+      margin: 10px;
       height: 100%;
+
+      .close-modal {
+        @include flexbox;
+        font-size: 2rem;
+        color: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        align-self: flex-end;
+
+        &:hover,
+        &:active {
+          color: var(--secondary-color);
+        }
+      }
 
       .img-modal {
         max-width: 100%;
@@ -45,18 +59,7 @@
           @include flexbox;
           gap: 1rem;
           flex-wrap: wrap;
-
-          // @media screen and (max-width: 768px) {
-          // }
-
-          a {
-            color: var(--primary-color);
-
-            &:hover,
-            &:active {
-              color: var(--secondary-color);
-            }
-          }
+          margin-bottom: 1rem;
         }
       }
     }

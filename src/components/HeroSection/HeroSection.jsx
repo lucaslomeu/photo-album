@@ -1,7 +1,5 @@
 import React from 'react';
-
 import SearchInput from '../SearchInput/SearchInput';
-
 import './HeroSection.scss';
 
 const HeroSection = ({ onClick }) => {

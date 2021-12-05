@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiCloseLine } from 'react-icons/ri';
 import SizeChoice from '../SizeChoice/SizeChoice';
 import './Modal.scss';
 
@@ -15,14 +16,17 @@ const Modal = ({
     if (e.target.id === id) onClose();
   };
 
-  function openPhotographerUrl() {
+  const openPhotographerUrl = () => {
     window.open(`${photographer_url}`);
-  }
+  };
 
   return (
     <div id={id} className="modal-overlay" onClick={handleOutsideClick}>
       <div className="modal">
         <div className="modal-content">
+          <div className="close-modal" onClick={onClose}>
+            <RiCloseLine />
+          </div>
           <div className="left-modal">
             <img className="img-modal" src={src} alt={alt} />
           </div>

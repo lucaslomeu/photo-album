@@ -1,20 +1,18 @@
 import React from 'react';
-
 import './SearchInput.scss';
-
 import { HiOutlineSearchCircle } from 'react-icons/hi';
 
 const SearchInput = ({ type = 'search', placeholder, onClick }) => {
-  function handleChange(e) {
+  const handleChange = (e) => {
     if (e.key === 'Enter') {
       onClick(e.target.value);
     }
-  }
+  };
 
-  function handleClick() {
+  const handleClick = () => {
     let inputValue = document.querySelector('input.search-input').value;
     onClick(inputValue);
-  }
+  };
 
   return (
     <div className="search-container">
