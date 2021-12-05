@@ -19,7 +19,12 @@ const Contact = () => {
   };
 
   const handleClick = () => {
-    if (name === '' || email === '' || topic === '' || textarea === '') {
+    if (
+      name.value === '' ||
+      email.value === '' ||
+      topic.value === '' ||
+      textarea.value === ''
+    ) {
       alert('Favor completar todos os campos!');
     } else {
       alert('Email enviado com sucesso!');
