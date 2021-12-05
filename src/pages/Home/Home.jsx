@@ -15,8 +15,8 @@ const Home = () => {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
+
   const token = '563492ad6f917000010000013b85056e10d242119d7b2dd5bb605f4f';
-  // const token = `${process.env.REACT_APP_MY_API_TOKEN}`;
 
   useEffect(() => {
     const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
@@ -36,7 +36,6 @@ const Home = () => {
 
   const handleSearch = () => {
     let inputValue = document.querySelector('input.search-input').value;
-    console.log(inputValue);
     setPage(1);
     setPhoto(inputValue);
   };
