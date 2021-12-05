@@ -21,6 +21,16 @@ html {
   background-color: var(--background-color);
 }
 
+a {
+  color: var(--primary-color);
+  transition: all 0.2s ease-out;
+
+  &:hover,
+  &:active {
+    color: var(--secondary-color);
+  }
+}
+
 @mixin flexbox(
   $display: flex,
   $flex-direction: row,

@@ -7,7 +7,7 @@
   text-align: center;
   color: var(--primary-color);
   margin-top: 25px;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 
   .footer-credits,
   .footer-developer {
@@ -16,11 +16,5 @@
 
   a {
     font-weight: 700;
-    color: var(--primary-color);
-
-    &:hover,
-    &:active {
-      color: var(--secondary-color);
-    }
   }
 }
