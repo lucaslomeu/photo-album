@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { IoMdAddCircleOutline } from 'react-icons/io';
 import './Button.scss';
 
-const Button = ({ text, onClick }) => {
+const Button = ({ onClick }) => {
   return (
     <button className="btn" onClick={onClick}>
-      {text}
+      <IoMdAddCircleOutline />
     </button>
   );
 };

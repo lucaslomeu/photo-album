@@ -7,7 +7,12 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <Link to="/" onClick={() => window.location.reload()}>
+        <Link
+          to="/"
+          onClick={() =>
+            !!window.location.contains('contato') && window.location.reload()
+          }
+        >
           ÁLBUM
         </Link>
       </div>

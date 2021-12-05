@@ -1,9 +1,26 @@
 @import '../../assets/styles/reset.scss';
 
 .footer {
-  @include flexbox;
+  @include flexbox($flex-direction: column);
   width: 100%;
   height: 50px;
   text-align: center;
-  border: 1px solid red;
+  color: var(--primary-color);
+  margin-top: 25px;
+  padding-bottom: 2rem;
+
+  .footer-credits,
+  .footer-developer {
+    cursor: pointer;
+  }
+
+  a {
+    font-weight: 700;
+    color: var(--primary-color);
+
+    &:hover,
+    &:active {
+      color: var(--secondary-color);
+    }
+  }
 }

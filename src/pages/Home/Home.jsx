@@ -15,26 +15,14 @@ const Home = () => {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
-
   const token = '563492ad6f917000010000013b85056e10d242119d7b2dd5bb605f4f';
   // const token = `${process.env.REACT_APP_MY_API_TOKEN}`;
 
   useEffect(() => {
     const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
-    const standardUrl = `https://api.pexels.com/v1/popular?page=${page}&per_page=15`;
 
-    if (photo !== '') {
+    if (photo) {
       fetch(setQueryUrl, {
-        headers: {
-          Authorization: `${token}`,
-        },
-      })
-        .then((data) => data.json())
-        .then((data) => {
-          // CODIGO TENHO QUE REFAZER
-        });
-    } else {
-      fetch(standardUrl, {
         headers: {
           Authorization: `${token}`,
         },
@@ -48,6 +36,7 @@ const Home = () => {
 
   function handleSearch() {
     let inputValue = document.querySelector('input.search-input').value;
+    console.log(inputValue);
     setPage(1);
     setPhoto(inputValue);
   }
@@ -57,35 +46,30 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className="container">
       <Header />
       <HeroSection onClick={() => handleSearch()} />
-      {/* <div className="list-navbar">
-        {!photo ? <Button text="Álbum de Fotos" /> : <Button text={photo} />}
-        <Button text="Novo" onClick={() => randomGenerator()} />
-        <Button text="Popular" onClick={() => randomGenerator()} />
-        <Button text="Aleatório" onClick={() => randomGenerator()} />
-      </div> */}
-
       {info && (
-        <div className="list-result">
-          <ul className="list-images">
-            {info.map((img) => (
-              <li key={img.id} className="item-img">
-                <img
-                  src={img.src.portrait}
-                  alt={`Photography number ${img.id}`}
-                  onClick={() => {
-                    setModalPhoto(img);
-                    setModal(true);
-                  }}
-                ></img>
-              </li>
-            ))}
-          </ul>
+        <div className="container">
+          <div className="list-result">
+            <ul className="list-images">
+              {info.map((img) => (
+                <li key={img.id} className="item-img">
+                  <img
+                    src={img.src.portrait}
+                    alt={`Photography number ${img.id}`}
+                    onClick={() => {
+                      setModalPhoto(img);
+                      setModal(true);
+                    }}
+                  ></img>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Button onClick={newRender} />
         </div>
       )}
-
       {modal ? (
         <Modal
           onClose={() => setModal(false)}
@@ -96,10 +80,8 @@ const Home = () => {
           fetchModal={modalPhoto}
         ></Modal>
       ) : null}
-
-      <button onClick={newRender}>PROX</button>
       <Footer />
-    </>
+    </div>
   );
 };
 

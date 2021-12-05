@@ -5,10 +5,13 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <div className="footer">
-      Fotos fornecidas pela
-      <a href="https://www.pexels.com/" className="pexel-footer">
-        Pexel
-      </a>
+      <div className="footer-credits">
+        Fotos fornecidas por <a href="https://www.pexels.com/">Pexel</a>
+      </div>
+      <div className="footer-developer">
+        Website desenvolvido por{' '}
+        <a href="https://github.com/lucaslomeu">Lucas Lomeu</a>
+      </div>
     </div>
   );
 };
