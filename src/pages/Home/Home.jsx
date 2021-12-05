@@ -52,7 +52,7 @@ const Home = () => {
       <Header />
       <HeroSection
         onClick={() => handleSearch()}
-        firstTag="Musica"
+        firstTag="Música"
         secondTag="Gato"
         thirdTag="Verão"
         fourthTag="Pizza"

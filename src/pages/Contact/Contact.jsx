@@ -11,7 +11,8 @@ const Contact = () => {
   let topic = document.querySelector('input.input-topic');
   let textarea = document.querySelector('textarea.input-textarea');
 
-  const resetFields = () => {
+  const resetFields = (e) => {
+    e.preventDefault();
     name.value = '';
     email.value = '';
     topic.value = '';
