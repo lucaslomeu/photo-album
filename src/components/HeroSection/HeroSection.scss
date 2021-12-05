@@ -33,4 +33,21 @@
       color: var(--secondary-color);
     }
   }
+
+  .suggets-tags {
+    @include flexbox;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+
+    h3 {
+      opacity: 1;
+      color: var(--primary-color);
+    }
+
+    p {
+      opacity: 0.7;
+    }
+  }
 }

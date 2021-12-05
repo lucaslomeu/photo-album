@@ -34,21 +34,32 @@ const Home = () => {
     }
   }, [page, photo]);
 
-  function handleSearch() {
+  const handleSearch = () => {
     let inputValue = document.querySelector('input.search-input').value;
     console.log(inputValue);
     setPage(1);
     setPhoto(inputValue);
-  }
+  };
 
-  function newRender() {
+  const newRender = () => {
     setPage(page + 1);
-  }
+  };
 
+  const setTag = (tag) => {
+    setPhoto(tag);
+  };
   return (
     <div className="container">
       <Header />
-      <HeroSection onClick={() => handleSearch()} />
+      <HeroSection
+        onClick={() => handleSearch()}
+        firstTag="Musica"
+        secondTag="Gato"
+        thirdTag="Verão"
+        fourthTag="Pizza"
+        setTag={setTag}
+        info={info}
+      />
       {info && (
         <div className="container">
           <div className="list-result">

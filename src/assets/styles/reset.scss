@@ -21,9 +21,11 @@ html {
   background-color: var(--background-color);
 }
 
-a {
+a,
+p {
   color: var(--primary-color);
   transition: all 0.2s ease-out;
+  cursor: pointer;
 
   &:hover,
   &:active {
