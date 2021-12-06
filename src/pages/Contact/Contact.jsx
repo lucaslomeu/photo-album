@@ -32,16 +32,16 @@ const Contact = () => {
     }
   };
 
+  const resetForm = () => {
+    document.getElementById('form-contact').reset();
+  };
+
   return (
     <>
       <Header />
       <div className="container-form">
         <h1 className="title-contact">Entre em contato conosco</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
+        <form id="form-contact">
           <input
             className="input-name"
             type="text"
@@ -68,7 +68,7 @@ const Contact = () => {
           <div className="btn-form">
             <input
               className="btn-reset"
-              onClick={resetFields}
+              onClick={resetForm}
               type="submit"
               value="Cancelar"
             />

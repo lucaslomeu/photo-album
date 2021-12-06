@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-developer">
         Website desenvolvido por{' '}
         <a href="https://github.com/lucaslomeu">Lucas Lomeu</a>
-        <h1>V 1.0</h1>
+        <h1>V 2.0</h1>
       </div>
     </div>
   );
