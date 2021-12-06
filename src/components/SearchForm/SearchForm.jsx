@@ -1,8 +1,8 @@
 import React from 'react';
 import SearchInput from '../SearchInput/SearchInput';
-import './HeroSection.scss';
+import './SearchForm.scss';
 
-const HeroSection = ({
+const SearchForm = ({
   onClick,
   firstTag,
   secondTag,
@@ -39,4 +39,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default SearchForm;

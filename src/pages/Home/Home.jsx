@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import HeroSection from '../../components/HeroSection/HeroSection';
+import SearchForm from '../../components/SearchForm/SearchForm';
 import Modal from '../../components/Modal/Modal';
 import Button from '../../components/Button/Button';
 
@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <div className="container">
       <Header />
-      <HeroSection
+      <SearchForm
         onClick={() => handleSearch()}
         firstTag="Música"
         secondTag="Gato"
