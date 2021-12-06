@@ -16,7 +16,7 @@ const Home = () => {
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
 
-  const token = '563492ad6f917000010000013b85056e10d242119d7b2dd5bb605f4f';
+  const token = '563492ad6f917000010000011a0345788a394ca0ad1bc4cfa3a8beb3';
 
   useEffect(() => {
     const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
@@ -29,7 +29,7 @@ const Home = () => {
       })
         .then((data) => data.json())
         .then((data) => {
-          info ? setInfo([...info, ...data.photos]) : setInfo(data.photos);
+          setInfo((info) => (info ? [...info, ...data.photos] : data.photos));
         });
     }
   }, [page, photo]);
@@ -38,6 +38,7 @@ const Home = () => {
     let inputValue = document.querySelector('input.search-input').value;
     setPage(1);
     setPhoto(inputValue);
+    setInfo(null);
   };
 
   const newRender = () => {
@@ -47,6 +48,7 @@ const Home = () => {
   const setTag = (tag) => {
     setPhoto(tag);
   };
+
   return (
     <div className="container">
       <Header />
