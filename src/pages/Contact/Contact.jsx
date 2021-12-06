@@ -11,24 +11,12 @@ const Contact = () => {
   let topic = document.querySelector('input.input-topic');
   let textarea = document.querySelector('textarea.input-textarea');
 
-  const resetFields = () => {
-    name.value = '';
-    email.value = '';
-    topic.value = '';
-    textarea.value = '';
-  };
-
   const handleClick = () => {
-    if (
-      name.value === '' ||
-      email.value === '' ||
-      topic.value === '' ||
-      textarea.value === ''
-    ) {
+    if (name === '' || email === '' || topic === '' || textarea === '') {
       alert('Favor completar todos os campos!');
     } else {
       alert('Email enviado com sucesso!');
-      resetFields();
+      resetForm();
     }
   };
 
@@ -67,15 +55,15 @@ const Contact = () => {
           ></textarea>
           <div className="btn-form">
             <input
+              type="button"
               className="btn-reset"
               onClick={resetForm}
-              type="submit"
               value="Cancelar"
             />
             <input
+              type="button"
               className="btn-submit"
               onClick={handleClick}
-              type="submit"
               value="Enviar"
             />
           </div>
