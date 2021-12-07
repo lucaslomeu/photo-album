@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-<p align="center">Website desenvolvido para busca de fotos, utilizando a API da Pexel. Acesse o preview [aqui!](https://photo-album-rouge-delta.vercel.app/)</p>
+Website desenvolvido para busca de fotos, utilizando a API da Pexel. Acesse o preview [aqui!](https://photo-album-rouge-delta.vercel.app)
 
 ### Pré-requisitos
 
