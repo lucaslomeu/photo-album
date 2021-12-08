@@ -15,6 +15,7 @@ const Home = () => {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
+  // const [value, setValue] = useState('');
 
   const token = '563492ad6f917000010000011a0345788a394ca0ad1bc4cfa3a8beb3';
 
@@ -34,13 +35,6 @@ const Home = () => {
     }
   }, [page, photo]);
 
-  const handleSearch = () => {
-    let inputValue = document.querySelector('input.search-input').value;
-    setPage(1);
-    setPhoto(inputValue);
-    setInfo(null);
-  };
-
   const newRender = () => {
     setPage(page + 1);
   };
@@ -49,11 +43,17 @@ const Home = () => {
     setPhoto(tag);
   };
 
+  const searchClickRender = (value) => {
+    setPage(1);
+    setPhoto(value);
+    setInfo(null);
+  };
+
   return (
     <div className="container">
       <Header />
       <SearchForm
-        onClick={() => handleSearch()}
+        onClick={(value) => searchClickRender(value)}
         firstTag="Música"
         secondTag="Gato"
         thirdTag="Verão"

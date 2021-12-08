@@ -4,12 +4,13 @@ import './SearchForm.scss';
 
 const SearchForm = ({
   onClick,
+  onChange,
   firstTag,
   secondTag,
   thirdTag,
   fourthTag,
   info,
-  setTag = () => {},
+  setTag,
 }) => {
   const suggestTags = (e) => {
     let tag = e.target.innerText;
@@ -17,14 +18,15 @@ const SearchForm = ({
   };
 
   return (
-    <div className="hero-section">
-      <div className="title-hero">
+    <div className="search-section">
+      <div className="title-search">
         As <span>melhores</span> fotos estão aqui:
       </div>
       <SearchInput
         type="search"
         placeholder="Pesquise sua foto gratuitamente"
         onClick={onClick}
+        onChange={onChange}
       />
       {!info && (
         <div className="suggets-tags">

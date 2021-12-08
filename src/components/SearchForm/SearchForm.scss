@@ -1,6 +1,6 @@
 @import '../../assets/styles/reset.scss';
 
-.hero-section {
+.search-section {
   @include flexbox($flex-direction: column);
   width: 100%;
   height: 250px;
@@ -12,12 +12,11 @@
     height: 200px;
   }
 
-  .title-hero {
+  .title-search {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 700;
-    cursor: pointer;
 
     @media (max-width: 400px) {
       width: 60%;
