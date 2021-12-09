@@ -1,4 +1,7 @@
+@import '../../assets/styles/reset.scss';
+
 .btn {
+  @include flexbox;
   background-color: transparent;
   width: 100px;
   outline: none;
