@@ -16,9 +16,8 @@ const Home = () => {
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
 
-  const token = `${process.env.REACT_APP_API_KEY}`;
-
   useEffect(() => {
+    const token = `${process.env.REACT_APP_API_KEY}`;
     const setQueryUrl = `https://api.pexels.com/v1/search?query=${photo}&page=${page}&per_page=15`;
 
     if (photo) {
